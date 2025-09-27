@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochila Antirrobo USB - Seguridad y Estilo</title>
+    <!-- Incluye el CDN de Tailwind CSS para un diseño responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Tipografía moderna para un aspecto profesional */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            background-color: #1a1a1a;
+        }
+
+        /* Gradiente de fondo para la sección principal y el footer */
+        .gradient-bg {
+            background: linear-gradient(135deg, #1c1c1e 0%, #1a1a1a 100%);
+        }
+
+        /* Animación de pulso para el botón principal */
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Animación flotante para elementos destacados */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Efecto de "brillo" en el botón de compra */
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .shine:hover::before {
+            left: 100%;
+        }
+
+        /* Estilo para los iconos de la sección de garantía */
+        .glow-icon {
+            text-shadow: 0 0 5px #4ade80, 0 0 10px #4ade80;
+        }
+
+        /* Animación para el texto de marquee - VELOCIDAD ACELERADA A 12s */
+        .marquee-animation {
+            animation: marquee 12s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Barra de texto en movimiento para Envío Gratis -->
+    <div class="bg-yellow-400 text-gray-900 font-bold py-2 overflow-hidden whitespace-nowrap">
+        <span class="inline-block marquee-animation text-xl">
+            <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f69a.svg" alt="Camión de entrega" class="inline-block w-6 h-6 mx-1"> ENVÍO GRATIS A TODO PARAGUAY <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f1f5-1f1fe.svg" alt="Bandera de Paraguay" class="inline-block w-6 h-6 mx-1"> • <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f69a.svg" alt="Camión de entrega" class="inline-block w-6 h-6 mx-1"> ENVÍO GRATIS A TODO PARAGUAY <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f1f5-1f1fe.svg" alt="Bandera de Paraguay" class="inline-block w-6 h-6 mx-1"> • <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f69a.svg" alt="Camión de entrega" class="inline-block w-6 h-6 mx-1"> ENVÍO GRATIS A TODO PARAGUAY <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f1f5-1f1fe.svg" alt="Bandera de Paraguay" class="inline-block w-6 h-6 mx-1"> •
+        </span>
+    </div>
+
+    <!-- Encabezado Impactante y Llamado a la Acción Principal (con imagen) -->
+    <header class="gradient-bg text-white py-16 md:py-24 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-16">
+            <!-- Contenido de texto y botones -->
+            <div class="text-center md:text-left md:w-1/2">
+                <!-- Título que resalta los beneficios clave -->
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+                    <span class="text-yellow-400">PROTEGE</span> TUS PERTENENCIAS<br>
+                    Y MANTENTE CONECTADO
+                </h1>
+                <!-- Subtítulo persuasivo y botón para generar descripción -->
+                <div id="description-container">
+                    <p id="product-description" class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto md:mx-0 opacity-90">
+                        La mochila con <strong>seguridad antirrobo</strong> y <strong>puerto USB integrado</strong>, diseñada para tu vida urbana.
+                    </p>
+                    <button id="generate-description-btn" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 border border-gray-700">
+                        Generar Descripción ✨
+                    </button>
+                    <div id="description-loading" class="hidden text-sm text-gray-400 mt-2">Generando...</div>
+                </div>
+                
+                <!-- Botón de Llamada a la Acción (CTA) con animación -->
+                <div class="floating mt-8">
+                    <!-- BOTÓN PRINCIPAL: Fondo amarillo y hover en verde llamativo -->
+                    <a href="https://wa.me/message/Y6UTI4KRCIBYB1" target="_blank" class="inline-block bg-yellow-400 hover:bg-green-500 transition-colors duration-300 text-gray-900 font-bold text-xl px-10 py-5 rounded-lg shadow-lg transform hover:scale-105 pulse-animation">
+                        ¡PEDIR POR WHATSAPP! 📲
+                    </a>
+                </div>
+                <p class="mt-4 text-sm text-gray-400">Envío sin costo a todo Paraguay y pago 100% seguro.</p>
+            </div>
+            
+            <!-- Contenedor de la imagen sin selector de variación -->
+            <div class="w-full md:w-1/2 flex flex-col items-center">
+                <!-- Imagen principal (ACTUALIZADA con la que muestra variaciones) -->
+                <img id="main-product-image" src="https://d39ru7awumhhs2.cloudfront.net/paraguay/products/4569/1744727614WhatsApp%20Image%202025-04-15%20at%2011.28.25.jpeg" alt="Mochila Antirrobo USB en varios colores" class="w-full max-w-sm rounded-lg shadow-2xl floating border border-gray-700">
+            </div>
+        </div>
+    </header>
+
+    <!-- Nueva Sección de Galería y Título -->
+    <section class="py-12 px-4 bg-gray-900">
+        <div class="max-w-6xl mx-auto text-center">
+            <!-- Título centrado y llamativo -->
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">
+                Descubre el diseño y la comodidad que te enamorarán
+            </h2>
+            <!-- Galería de imágenes en una cuadrícula responsiva -->
+            <!-- Se cambió a lg:grid-cols-3 para mostrar 6 imágenes ordenadamente -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://tuttomarket.com.py/cdn/shop/files/1739911729WhatsAppImage2025-02-16at04.49.52_6.jpg?v=1741295843&width=823" alt="Diseño moderno y elegante" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105 border border-gray-700">
+                <img src="https://i.pinimg.com/1200x/e2/ea/34/e2ea34135e1c4d02ffcbab80a9103d9c.jpg" alt="Detalles de diseño de la mochila" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105 border border-gray-700">
+                <img src="https://i.pinimg.com/1200x/f0/86/af/f086af81af5df9967b3a3f622a4b77f0.jpg" alt="Interior organizado de la mochila" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105 border border-gray-700">
+                <!-- Imagen: Comodidad y Correas Ergonómicas -->
+                <img src="https://d39ru7awumhhs2.cloudfront.net/paraguay/products/6943/1750349773e9a0f4b8-28dd-4080-9fed-be2557cb007a.jpeg" alt="Comodidad y correas ergonómicas" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105 border border-gray-700">
+                <!-- Imagen: Vista Lateral y Diseño Urbano (Ahora la imagen de las variaciones es la principal, se mantiene esta como detalle si es diferente) -->
+                <img src="https://d39ru7awumhhs2.cloudfront.net/paraguay/products/6943/1756130657WhatsApp%20Image%202025-08-25%20at%2002.21.53.jpeg" alt="Vista lateral y diseño urbano" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105 border border-gray-700">
+                <img src="https://i.pinimg.com/736x/29/fa/c2/29fac230c7274d102abec32bd2551b07.jpg" alt="Detalle de bolsillo oculto" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105 border border-gray-700">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Beneficios Destacados -->
+    <section class="py-16 px-4 bg-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+                ¿Por qué nuestra mochila es tu mejor inversión?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Beneficio 1: Seguridad -->
+                <div class="text-center p-6 bg-gray-900 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <div class="text-4xl mb-3 text-cyan-400">🔒</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">SEGURIDAD ANTIRROBO</h3>
+                    <p class="text-gray-400">
+                        Cierre oculto y materiales reforzados. <strong>Imposible de abrir sin que te des cuenta.</strong>
+                    </p>
+                </div>
+                <!-- Beneficio 2: Conectividad -->
+                <div class="text-center p-6 bg-gray-900 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <div class="text-4xl mb-3 text-cyan-400">🔌</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">PUERTO USB INTEGRADO</h3>
+                    <p class="text-gray-400">
+                        Carga tu celular o tablet en movimiento. <strong>¡Nunca más sin batería!</strong>
+                    </p>
+                </div>
+                <!-- Beneficio 3: Diseño -->
+                <div class="text-center p-6 bg-gray-900 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <div class="text-4xl mb-3 text-cyan-400">✨</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">DISEÑO MODERNO Y ERGONÓMICO</h3>
+                    <p class="text-gray-400">
+                        Diseñada para tu comodidad y estilo. <strong>Te verás genial</strong> en cualquier lugar.
+                    </p>
+                </div>
+                <!-- Beneficio 4: Organización -->
+                <div class="text-center p-6 bg-gray-900 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <div class="text-4xl mb-3 text-cyan-400">💻</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">ESPACIO INTELIGENTE</h3>
+                    <p class="text-gray-400">
+                        Compartimento acolchado para laptop de hasta 15.6". <strong>Todo organizado y protegido.</strong>
+                    </p>
+                </div>
+                <!-- Beneficio 5: Versatilidad -->
+                <div class="text-center p-6 bg-gray-900 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <div class="text-4xl mb-3 text-cyan-400">🌍</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">PERFECTA PARA TODO</h3>
+                    <p class="text-gray-400">
+                        Ideal para la universidad, trabajo, viajes o tu día a día. <strong>Una mochila, mil usos.</strong>
+                    </p>
+                </div>
+                <!-- Beneficio 6: Durabilidad (Ahora con Impermeabilidad) -->
+                <div class="text-center p-6 bg-gray-900 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <div class="text-4xl mb-3 text-cyan-400">💪</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">100% IMPERMEABLE Y RESISTENTE</h3>
+                    <p class="text-gray-400">
+                        Material de alta densidad **100% impermeable** y costuras reforzadas. <strong>Protege tu laptop de la lluvia.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barra de texto en movimiento para Pago Contra Entrega -->
+    <div class="bg-gray-800 text-yellow-400 font-bold py-2 overflow-hidden whitespace-nowrap border-t border-b border-gray-700">
+        <span class="inline-block marquee-animation text-xl">
+            <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f6d2.svg" alt="Carrito de compras" class="inline-block w-6 h-6 mx-1"> <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f381.svg" alt="Caja de regalo" class="inline-block w-6 h-6 mx-1"> PAGO CONTRA ENTREGA A ASUNCIÓN & CDE <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f6d2.svg" alt="Carrito de compras" class="inline-block w-6 h-6 mx-1"> <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f381.svg" alt="Caja de regalo" class="inline-block w-6 h-6 mx-1"> • <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f6d2.svg" alt="Carrito de compras" class="inline-block w-6 h-6 mx-1"> <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f381.svg" alt="Caja de regalo" class="inline-block w-6 h-6 mx-1"> PAGO CONTRA ENTREGA A ASUNCIÓN & CDE <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f6d2.svg" alt="Carrito de compras" class="inline-block w-6 h-6 mx-1"> <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f381.svg" alt="Caja de regalo" class="inline-block w-6 h-6 mx-1"> •
+        </span>
+    </div>
+
+    <!-- Sección de Prueba Social (Testimonios) -->
+    <section class="py-16 px-4 bg-gray-900">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                ¡Más de 5,000 clientes satisfechos! ⭐⭐⭐⭐⭐
+            </h2>
+            <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonio 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="italic text-gray-400 mb-4">"<strong>¡La mejor compra del año!</strong> La uso a diario para ir a la universidad y me siento mucho más seguro."</p>
+                    <div class="flex items-center mt-4">
+                        <img class="w-12 h-12 rounded-lg mr-4 border border-gray-600" src="https://placehold.co/64x64/2D3748/A0AEC0?text=JR" alt="Foto de perfil">
+                        <div>
+                            <p class="font-semibold text-white">Javier R.</p>
+                            <p class="text-sm text-gray-500">Estudiante</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="italic text-gray-400 mb-4">"Es super cómoda y el puerto USB es un salvavidas. <strong>El diseño es moderno y elegante.</strong>"</p>
+                    <div class="flex items-center mt-4">
+                        <img class="w-12 h-12 rounded-lg mr-4 border border-gray-600" src="https://placehold.co/64x64/2D3748/A0AEC0?text=AM" alt="Foto de perfil">
+                        <div>
+                            <p class="font-semibold text-white">Ana M.</p>
+                            <p class="text-sm text-gray-500">Profesional</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
+                    <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="italic text-gray-400 mb-4">"Viajo constantemente y esta mochila me da total tranquilidad. <strong>Es robusta, segura y espaciosa.</strong>"</p>
+                    <div class="flex items-center mt-4">
+                        <img class="w-12 h-12 rounded-lg mr-4 border border-gray-600" src="https://placehold.co/64x64/2D3748/A0AEC0?text=PM" alt="Foto de perfil">
+                        <div>
+                            <p class="font-semibold text-white">Pedro M.</p>
+                            <p class="text-sm text-gray-500">Nómada Digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="add-testimonial-btn" class="mt-8 bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 border border-gray-700">
+                Generar Nuevo Testimonio ✨
+            </button>
+            <div id="testimonial-loading" class="hidden text-sm text-gray-500 mt-2">Generando...</div>
+        </div>
+    </section>
+
+    <!-- Sección de Garantía y Confianza -->
+    <section class="py-12 px-4 bg-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-6 text-white"><img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f4b3.svg" alt="Tarjeta de crédito" class="inline-block w-8 h-8 mr-2"> COMPRA 100% SEGURA</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="flex flex-col items-center justify-center space-y-2 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <div class="text-4xl text-green-400 glow-icon">✅</div>
+                    <div>
+                        <p class="font-semibold text-white">Garantía 1 mes</p>
+                        <p class="text-sm text-gray-400">Cambios fáciles sin preguntas</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center space-y-2 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <div class="text-4xl text-blue-400 glow-icon">🚚</div>
+                    <div>
+                        <p class="font-semibold text-white">Envío sin costo</p>
+                        <p class="text-sm text-gray-400">A todo el país</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center space-y-2 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <div class="text-4xl text-purple-400 glow-icon">💳</div>
+                    <div>
+                        <p class="font-semibold text-white">Pago contra entrega</p>
+                        <p class="text-sm text-gray-400">Pagas al recibir tu pedido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Oferta Especial para Generar Urgencia -->
+    <section id="offer" class="py-16 px-4 bg-red-800 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
+                ¡OFERTA ESPECIAL POR TIEMPO LIMITADO!
+            </h2>
+            <div class="bg-gray-900 text-red-400 rounded-lg p-8 mb-8 inline-block shadow-lg border border-red-700">
+                <p class="text-xl mb-2">Precio normal: <span class="line-through text-gray-400">₲210.000</span></p>
+                <!-- Precio actualizado a ₲179.900 -->
+                <p class="text-5xl font-extrabold mb-2 text-yellow-400">¡SOLO ₲179.900!</p>
+                <!-- Ahorro actualizado a ₲30.100 -->
+                <p class="text-2xl font-semibold text-green-400">¡AHORRAS Gs. 30.100!</p>
+            </div>
+            
+            <div class="mb-8">
+                <p class="text-xl mb-4 font-semibold">⏰ Esta oferta termina en:</p>
+                <div id="countdown" class="text-3xl md:text-5xl font-bold bg-gray-900 rounded-lg py-4 px-6 inline-block tracking-widest border border-gray-700">
+                    00:00:00
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- Botón de Compra con efecto de brillo -->
+                <a href="https://wa.me/message/Y6UTI4KRCIBYB1" target="_blank" class="shine bg-yellow-400 hover:bg-yellow-500 transition-colors duration-300 text-gray-900 font-bold text-2xl px-12 py-6 rounded-lg shadow-xl transform hover:scale-105 block mx-auto flex items-center justify-center">
+                     <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f6d2.svg" alt="Carrito de compras" class="inline-block w-8 h-8 mr-2"> ¡COMPRAR AHORA - ₲179.900!
+                </a>
+                <p class="text-yellow-200 font-semibold">⚡ Solo quedan 7 unidades en stock.</p>
+                <p class="text-sm text-gray-300 font-light">*Oferta válida solo hoy. No te la pierdas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Llamado a la Acción (CTA) Final -->
+    <section class="py-16 px-4 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                ¿Listo para proteger lo que más te importa?
+            </h2>
+            <p class="text-xl mb-8 font-light opacity-90">
+                <strong>No esperes más.</strong> ¡Consigue tu mochila antirrobo y lleva tu seguridad al siguiente nivel!
+            </p>
+            <a href="https://wa.me/message/Y6UTI4KRCIBYB1" target="_blank" class="inline-block bg-yellow-400 hover:bg-yellow-500 transition-colors duration-300 text-gray-900 font-bold text-2xl px-12 py-6 rounded-lg shadow-xl transform hover:scale-105 pulse-animation">
+                🎒 ¡LA QUIERO AHORA!
+            </a>
+        </div>
+    </section>
+    
+    <!-- Términos y Condiciones y Política de Devolución -->
+    <section class="py-12 px-4 bg-gray-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4 text-white">Términos y Condiciones y Política de Devolución</h2>
+            <p class="text-sm text-gray-400">
+                Para garantizar la transparencia, te invitamos a leer nuestros términos y condiciones. La devolución del producto se puede solicitar dentro de los 7 días posteriores a la recepción, siempre y cuando se cumplan las condiciones establecidas en nuestra política. Si tienes alguna duda, no dudes en contactarnos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-950 text-gray-500 py-8 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="mb-2">Mochila Antirrobo USB - Tu seguridad es nuestra prioridad</p>
+            <p class="text-sm text-gray-600">© 2024 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Script para la funcionalidad de la página -->
+    <script>
+        // Contador de tiempo regresivo (Countdown)
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            // Establecer un tiempo de 24 horas (en segundos)
+            let remainingTime = 24 * 60 * 60; 
+            
+            setInterval(() => {
+                const hours = Math.floor(remainingTime / 3600);
+                const minutes = Math.floor((remainingTime % 3600) / 60);
+                const seconds = remainingTime % 60;
+                
+                const formattedTime = 
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                
+                countdownElement.textContent = formattedTime;
+                
+                remainingTime--;
+                if (remainingTime < 0) {
+                    remainingTime = 0;
+                }
+            }, 1000);
+        }
+
+        // Integración de la API de Gemini para Generar Contenido
+        document.addEventListener('DOMContentLoaded', () => {
+            const descriptionBtn = document.getElementById('generate-description-btn');
+            const descriptionLoading = document.getElementById('description-loading');
+            const productDescription = document.getElementById('product-description');
+            
+            const testimonialBtn = document.getElementById('add-testimonial-btn');
+            const testimonialLoading = document.getElementById('testimonial-loading');
+            const testimonialsContainer = document.getElementById('testimonials-container');
+
+            // Función genérica para llamar a la API de Gemini
+            async function generateContent(prompt, loadingElement, responseSchema = null) {
+                loadingElement.classList.remove('hidden');
+                
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }],
+                    systemInstruction: { parts: [{ text: "Actúa como un experto en marketing digital para un producto moderno. Responde de manera directa y concisa, en español." }] },
+                    generationConfig: {
+                        responseMimeType: responseSchema ? "application/json" : "text/plain",
+                        responseSchema: responseSchema
+                    }
+                };
+
+                let retries = 0;
+                const maxRetries = 3;
+                const baseDelay = 1000;
+
+                while (retries < maxRetries) {
+                    try {
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            if (response.status === 429) {
+                                const delay = baseDelay * Math.pow(2, retries);
+                                await new Promise(res => setTimeout(res, delay));
+                                retries++;
+                                continue;
+                            } else {
+                                throw new Error(`API error: ${response.statusText}`);
+                            }
+                        }
+
+                        const result = await response.json();
+                        if (responseSchema) {
+                            const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                            return JSON.parse(jsonText);
+                        } else {
+                            const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                            return text.replace(/\*/g, '').trim();
+                        }
+                    } catch (error) {
+                        console.error('Failed to generate content:', error);
+                    }
+                    retries++;
+                }
+                return responseSchema ? null : 'No se pudo generar el contenido. Intenta de nuevo más tarde.';
+            }
+
+            // Listener para el botón de descripción
+            descriptionBtn.addEventListener('click', async () => {
+                const prompt = "Genera una descripción persuasiva y concisa para una mochila antirrobo USB. Destaca la seguridad, el estilo, el puerto USB y el espacio para laptop. El público son jóvenes y profesionales urbanos.";
+                productDescription.textContent = '';
+                const newDescription = await generateContent(prompt, descriptionLoading);
+                productDescription.textContent = newDescription;
+                descriptionLoading.classList.add('hidden');
+            });
+
+            // Listener para el botón de testimonio
+            testimonialBtn.addEventListener('click', async () => {
+                const prompt = `
+                    Genera un testimonio de cliente de 2-3 líneas para una mochila antirrobo USB.
+                    Elige una de las siguientes personas para el testimonio:
+                    - Estudiante universitario, 22 años
+                    - Diseñadora gráfica, 28 años
+                    - Nómada digital, 30 años
+                    - Profesional de marketing, 25 años
+                    - Viajero frecuente, 35 años
+                `;
+                const schema = {
+                    type: "OBJECT",
+                    properties: {
+                        "testimonial": { "type": "STRING" },
+                        "name": { "type": "STRING" },
+                        "role": { "type": "STRING" }
+                    },
+                    required: ["testimonial", "name", "role"]
+                };
+                
+                const newTestimonial = await generateContent(prompt, testimonialLoading, schema);
+                
+                if (newTestimonial && newTestimonial.testimonial) {
+                    const testimonialCard = document.createElement('div');
+                    testimonialCard.className = 'bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700';
+                    testimonialCard.innerHTML = `
+                        <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="italic text-gray-400 mb-4">"${newTestimonial.testimonial}"</p>
+                        <div class="flex items-center mt-4">
+                            <img class="w-12 h-12 rounded-lg mr-4 border border-gray-600" src="https://placehold.co/64x64/2D3748/A0AEC0?text=${newTestimonial.name.charAt(0)}${newTestimonial.role.charAt(0)}" alt="Foto de perfil">
+                            <div>
+                                <p class="font-semibold text-white">${newTestimonial.name}</p>
+                                <p class="text-sm text-gray-500">${newTestimonial.role}</p>
+                            </div>
+                        </div>
+                    `;
+                    testimonialsContainer.appendChild(testimonialCard);
+                }
+                testimonialLoading.classList.add('hidden');
+            });
+        });
+        
+        // Iniciar el contador cuando la página se carga
+        window.onload = function() {
+            updateCountdown();
+        };
+    </script>
+</body>
+</html>
+
